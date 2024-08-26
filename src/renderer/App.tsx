@@ -1,7 +1,14 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
-import './App.css';
+import 'tailwindcss/tailwind.css';
 import { useEffect, useState } from 'react';
+
+const Tailwind = () => {
+  return (
+    <div className="text-center border-solid border-4 border-red-500 bg-black text-white shadow">
+      ERB + TAILWIND = ❤
+    </div>
+  );
+};
 
 function Hello() {
   const [prayerTimes, setPrayerTimes] = useState(null);
@@ -28,7 +35,7 @@ function Hello() {
       const json = await response.json();
       console.log(json);
       return json;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
     }
     return null;
@@ -36,11 +43,9 @@ function Hello() {
 
   return (
     <div>
-      <div className="Hello">
-        <img width="200" alt="icon" src={icon} />
-      </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
+      <h1 className="text-blue-300">electron-react-boilerplate</h1>
+      <Tailwind/>
+      <div>
         <a
           href="https://electron-react-boilerplate.js.org/"
           target="_blank"
